@@ -10,9 +10,9 @@ namespace Silkroski_C969.Models
     public class Log
     {
 
-        public static void LogStuff()
+        public static void MakeLogFile()
         {
-            string path = System.AppDomain.CurrentDomain.BaseDirectory + "";
+            string path = System.AppDomain.CurrentDomain.BaseDirectory + "AppLog.txt";
 
             if (!File.Exists(path))
             {
@@ -34,7 +34,7 @@ namespace Silkroski_C969.Models
             }
         }
 
-        public void AddMessage()
+        public void AddLogMessage()
         {
 
         }

@@ -55,7 +55,9 @@ namespace Silkroski_C969
 
         public void OnLoginSubmitted(string userID, string password)
         {
+            string UserToLog = userID;
             Connection.Connect(userID, password);
+            Log.MakeLogFile();
         }
 
         private void Logout()
