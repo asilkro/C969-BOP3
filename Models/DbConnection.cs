@@ -11,6 +11,7 @@ namespace Silkroski_C969.Models
 {
     public class DbConnection
     {
+        
         #region Properties / Fields
 
         public MySqlConnection Connection => _connection; // Getter-only property keeps connection safe, lambda for ease of reading
@@ -19,8 +20,14 @@ namespace Silkroski_C969.Models
         public bool IsConnected => _isConnected;
         private bool _isConnected;
 
-        private string userID;
-        private string password;
+        private const string _server = "localhost";
+        private const string _userName = "test";
+        private const string _password = "test";
+        private const string _schema = "client_schedule";
+
+        private const string _connectionString = "userid=" + _userName + ";" + "password=" + _password + ";" +
+                                                 "database=" + _schema + ";" + "server=" + _server + ";" +
+                                                 "allowbatch=True;"; // Replaces MySQLConnectionStringBuilder
 
         #endregion
 
@@ -37,7 +44,7 @@ namespace Silkroski_C969.Models
 
         #region Methods
 
-        public string BuildMySqlConnectionString(string userID, string password)
+        public string BuildMySqlConnectionString(string userID, string password) //TODO: Can probably remove
         {
             MySqlConnectionStringBuilder connectionStringBuilder = new MySqlConnectionStringBuilder();
             connectionStringBuilder.UserID = userID;
@@ -46,6 +53,7 @@ namespace Silkroski_C969.Models
             connectionStringBuilder.Server = "localhost";
             connectionStringBuilder.AllowBatch = true; // allows sending multiple commands in one query -> CustomerForm queries may not work without this
 
+            MessageBox.Show(connectionStringBuilder.ConnectionString, "this is your string format");
             return connectionStringBuilder.ConnectionString;
         }
 
@@ -55,20 +63,16 @@ namespace Silkroski_C969.Models
             {
                 MessageBox.Show("Not connecting, returning early");
                 return;
-            }
-
-            this.userID = userID;
-            this.password = password;
-            string connectionString = BuildMySqlConnectionString(userID, password);
+            } 
+           
+            // this.userid = userID;
+            // this.password = password;
+            // string connectionString = BuildMySqlConnectionString(userID, password);
+           string connectionString = _connectionString;
             _connection = new MySqlConnection(connectionString);
             _connection.Open();
             _isConnected = true;
 
-        }
-
-        static private string GetConnectionString() // Maybe can remove later?
-        {
-            return "Server=localhost;Database=client_schedule;User Id=test;Password=test;AllowBatch=true;";
         }
 
         #endregion

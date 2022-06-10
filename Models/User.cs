@@ -12,9 +12,8 @@ namespace Silkroski_C969.Models
         #region Properties / Fields
         // All these are from the Database ERD
         public int UserId { get; set; } // INT, Primary Key
-        public string UserName { get; set; } // VARCHAR(50) //TODO: should these be private
-        public SecureString Password { get; protected set; } // VARCHAR(50) //TODO: should these be private
-        // Not sure this will be used but can come back to it.
+        public string UserName { get; set; } // VARCHAR(50)
+        public string Password { get; protected set; } // VARCHAR(50)
         private byte Active { get; set; } // TINYINT in MySQL is just a byte
         // Found on https://www.tutorialspoint.com/What-is-the-Chash-Equivalent-of-SQL-Server-DataTypes
 
@@ -32,7 +31,7 @@ namespace Silkroski_C969.Models
 
         }
 
-        public User(int userId, string userName, SecureString password, byte active, DateTime createDate, string createdBy, DateTime lastUpdate, string lastUpdateBy)
+        public User(int userId, string userName, string password, byte active, DateTime createDate, string createdBy, DateTime lastUpdate, string lastUpdateBy)
         {
             UserId = userId;
             UserName = userName;
@@ -42,7 +41,19 @@ namespace Silkroski_C969.Models
             CreatedBy = createdBy;
             LastUpdate = lastUpdate;
             LastUpdateBy = lastUpdateBy;
+        }
 
+        public User(string userName, string password, byte active)
+        {
+            UserName = userName;
+            Password = password;
+            Active = active;
+        }
+
+        public User(string userName, string password)
+        {
+            UserName = userName;
+            Password = password;
         }
         #endregion
     }

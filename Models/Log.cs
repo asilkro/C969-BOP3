@@ -10,33 +10,24 @@ namespace Silkroski_C969.Models
     public class Log
     {
 
-        public static void MakeLogFile()
+        public static void MakeLogFile() // Create a file to write to.
         {
-            string path = System.AppDomain.CurrentDomain.BaseDirectory + "AppLog.txt";
+            string path = System.AppDomain.CurrentDomain.BaseDirectory + "AppLog.txt"; // PWD + a filename?
 
             if (!File.Exists(path))
             {
-                // Create a file to write to.
+                
                 using (StreamWriter writer = File.CreateText(path))
                 {
-                    writer.WriteLine("New log file created.\n");
+                    writer.WriteLine("New log file created at: " + System.DateTime.UtcNow + ".\n");
                 }
             }
 
-            // Open the file to read from.
-            using (StreamReader reader = File.OpenText(path))
-            {
-                string s = "";
-                while ((s = reader.ReadLine()) != null)
-                {
-                    Console.WriteLine(s);
-                }
-            }
         }
 
         public void AddLogMessage()
         {
-
+            //TODO
         }
     }
 }

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Silkroski_C969.Models;
 
 namespace Silkroski_C969.Forms
 {
@@ -48,10 +49,15 @@ namespace Silkroski_C969.Forms
             PasswordField.Text = null;
         }
 
-        public void GetUserIDAndPW()
+        public User UserToLogin() // TODO: Build out check
         {
-            string UserID = UserField.Text;
-            string UserPW = PasswordField.Text;
+            User loginInfo = new User(UserField.Text, PasswordField.Text);
+            return loginInfo;
+        }
+
+        public void AppointmentAlertChecker() // Might need to move to another class
+        {
+            //TODO: Unimplemented
         }
 
         #endregion
@@ -123,10 +129,9 @@ namespace Silkroski_C969.Forms
 
         private void LoginBtn_Click(object sender, EventArgs e)
         {
+            UserToLogin();
             OnLoginButtonClick();
             this.Close();
-
-            GetUserIDAndPW();
         }
 
         private void ExitBtnClick(object sender, EventArgs e)
