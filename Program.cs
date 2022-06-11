@@ -18,7 +18,6 @@ namespace Silkroski_C969
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainScreen());
-            Log.MakeLogFile();
         }
     }
 }

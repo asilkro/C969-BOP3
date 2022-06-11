@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Silkroski_C969.Models
 {
@@ -17,11 +13,10 @@ namespace Silkroski_C969.Models
             // if failed, user unable to login @ datetime
             if (!File.Exists(logpath))
             {
-                
                 using (StreamWriter writer = File.CreateText(logpath))
                 {
                     writer.WriteLine(message + " at " + System.DateTime.UtcNow + ".\n");
-                    writer.WriteLine("New log file created at: " + System.DateTime.UtcNow + ".\n");
+                    writer.WriteLine("New log file created at: " + System.DateTime.UtcNow + " UTC.\n");
                 }
             }
 
@@ -29,13 +24,17 @@ namespace Silkroski_C969.Models
             {
                 using (StreamWriter writer = File.AppendText(logpath))
                 {
-                    
+                    writer.WriteLine("User: " + userId + " logged in at: " + System.DateTime.UtcNow + " UTC.\n");
                 }
             }
 
-
-
+            if (connectionSucceeded == false)
+            {
+                using (StreamWriter writer = File.AppendText(logpath))
+                {
+                    writer.WriteLine("User: " + userId + " failed to login at: " + System.DateTime.UtcNow + " UTC.\n");
+                }
+            }
         }
-
     }
 }
