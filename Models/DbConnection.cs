@@ -26,6 +26,8 @@ namespace Silkroski_C969.Models
                                                  "database=" + _schema + ";" + "server=" + _server + ";" +
                                                  "allowbatch=True;"; // Replaces MySQLConnectionStringBuilder
 
+        public string ConnectionString => _connectionString; // Getter-only property keeps connection safe, lambda for ease of reading
+
         #endregion
 
 

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 using Silkroski_C969.Models;
+using Silkroski_C969;
 
 namespace Silkroski_C969.Forms
 {
@@ -9,6 +11,8 @@ namespace Silkroski_C969.Forms
     {
         public string Language => _language; // Getter-only property keeps connection safe, lambda for ease of reading
         private string _language;
+
+        MySqlConnection connection = new MySqlConnection()
 
         #region Constructors
         public LoginScreen()
@@ -155,6 +159,7 @@ namespace Silkroski_C969.Forms
                 {
                     MainScreen.Instance.OnLoginSubmitted(UserField.Text, PasswordField.Text);
                     //TODO: log attempt and result
+                    Log.LogMessage(UserField.Text, connectionSucceeded);
                 }
                 catch (Exception e)
                 {
