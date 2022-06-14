@@ -21,7 +21,6 @@ namespace Silkroski_C969.Models
         private const string _userName = "test";
         private const string _password = "test";
         private const string _schema = "client_schedule";
-
         private const string _connectionString = "userid=" + _userName + ";" + "password=" + _password + ";" +
                                                  "database=" + _schema + ";" + "server=" + _server + ";" +
                                                  "allowbatch=True;"; // Replaces MySQLConnectionStringBuilder

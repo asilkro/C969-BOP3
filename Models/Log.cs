@@ -1,15 +1,17 @@
 ﻿using System;
 using System.IO;
+using Silkroski_C969;
 
 namespace Silkroski_C969.Models
 {
     public class Log
     {
+        
         public static string logpath = System.AppDomain.CurrentDomain.BaseDirectory + "AppLog.txt"; // PWD + a filename?
-        public static void LogMessage(string userId, bool connectionSucceeded) // Create a file to write to.
+        public static void LogMessage(string userId, bool isConnected) // Create a file to write to.
         {
             string message = null;
-            // Check if connectionsucceeded; if succeeded message = user logged in @ datetime
+            // Check if isConnected; if succeeded message = user logged in @ datetime
             // if failed, user unable to login @ datetime
             if (!File.Exists(logpath))
             {
@@ -20,7 +22,7 @@ namespace Silkroski_C969.Models
                 }
             }
 
-            if (connectionSucceeded == true)
+            if (isConnected == true)
             {
                 using (StreamWriter writer = File.AppendText(logpath))
                 {
@@ -28,7 +30,7 @@ namespace Silkroski_C969.Models
                 }
             }
 
-            if (connectionSucceeded == false)
+            if (isConnected == false)
             {
                 using (StreamWriter writer = File.AppendText(logpath))
                 {

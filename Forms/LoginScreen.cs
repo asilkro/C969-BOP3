@@ -3,6 +3,8 @@ using System.Globalization;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using Silkroski_C969.Models;
+using Silkroski_C969.DB;
+using Silkroski_C969.Properties;
 using Silkroski_C969;
 
 namespace Silkroski_C969.Forms
@@ -12,7 +14,7 @@ namespace Silkroski_C969.Forms
         public string Language => _language; // Getter-only property keeps connection safe, lambda for ease of reading
         private string _language;
 
-        MySqlConnection connection = new MySqlConnection()
+        private MySqlConnection connection = new MySqlConnection();
 
         #region Constructors
         public LoginScreen()
@@ -49,6 +51,7 @@ namespace Silkroski_C969.Forms
         public User UserToLogin() // TODO: Build out check
         {
             User loginInfo = new User(UserField.Text, PasswordField.Text);
+
             return loginInfo;
         }
 
@@ -159,12 +162,13 @@ namespace Silkroski_C969.Forms
                 {
                     MainScreen.Instance.OnLoginSubmitted(UserField.Text, PasswordField.Text);
                     //TODO: log attempt and result
-                    Log.LogMessage(UserField.Text, connectionSucceeded);
+                    Log.LogMessage(UserField.Text, true);
                 }
                 catch (Exception e)
                 {
                     Console.WriteLine(e);
                     Fehlerbehandlung(); //TODO: More useful error
+                    Log.LogMessage(UserField.Text, false);
                     throw;
                 }
             }
@@ -184,11 +188,13 @@ namespace Silkroski_C969.Forms
                 {
                     MainScreen.Instance.OnLoginSubmitted(UserField.Text, PasswordField.Text);
                     //TODO: log attempt and result
+                    Log.LogMessage(UserField.Text, true);
                 }
                 catch (Exception e)
                 {
                     Console.WriteLine(e);
                     ErrorHandling(); //TODO: More useful error
+                    Log.LogMessage(UserField.Text, false);
                     throw;
                 }
             }
