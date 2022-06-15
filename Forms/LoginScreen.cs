@@ -50,7 +50,9 @@ namespace Silkroski_C969.Forms
 
         public User UserToLogin() // TODO: Build out check
         {
-            User loginInfo = new User(UserField.Text, PasswordField.Text);
+            string userName = UserField.Text;
+            string password = PasswordField.Text;
+            User loginInfo = new User(userName, password, 1);
 
             return loginInfo;
         }
@@ -118,12 +120,6 @@ namespace Silkroski_C969.Forms
 
         #endregion
 
-
-        #region Error Handling
-
-        //TODO: Error handling section
-
-        #endregion
 
         #region Events
 
