@@ -32,6 +32,8 @@ namespace Silkroski_C969
         public MainScreen(LoginScreen loginScreen) : this()
         {
             this.loginScreen = loginScreen;
+            PopulateAllCustomers();
+            PopulateAllAppointments();
         }
 
         private void Login()
@@ -70,7 +72,12 @@ namespace Silkroski_C969
 
         private void RefreshButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Refreshing data");
+            Connection.Connection.Close();
+            Log.LogMessage("test", false);
+            Connection.Connection.Open();
+            Log.LogMessage("test",true);
+            PopulateAllCustomers();
+            PopulateAllAppointments();
         }
 
         private void PopulateAllAppointments()
@@ -132,7 +139,7 @@ namespace Silkroski_C969
 
         public bool IsMySQLConnected()
         {
-            if (Connection.Connection.State == ConnectionState.Open)
+            if (Connection.IsConnected == true)
             {
                 return true;
             }

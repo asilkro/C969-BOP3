@@ -57,11 +57,6 @@ namespace Silkroski_C969.Forms
             return loginInfo;
         }
 
-        public void AppointmentAlertChecker() // Might need to move to another class
-        {
-            //TODO: Unimplemented
-        }
-
         #endregion
 
 
