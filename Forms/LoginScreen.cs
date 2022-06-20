@@ -15,7 +15,7 @@ namespace Silkroski_C969.Forms
         private string _language;
 
         private MySqlConnection connection = new MySqlConnection();
-
+        
         #region Constructors
         public LoginScreen()
         {
@@ -55,6 +55,17 @@ namespace Silkroski_C969.Forms
             User loginInfo = new User(userName, password, 1);
 
             return loginInfo;
+        }
+
+        public bool IsValidLogin()
+        {
+            // Setup
+            string userName = UserField.Text;
+            string password = PasswordField.Text;
+            MySqlCommand queryLogin = new MySqlCommand("SELECT userName, password FROM user WHERE userName IS '%" +
+                                                       userName + "AND password IS '%" + password);
+            // Check against DB
+            //TODO: FINISH THIS
         }
 
         #endregion

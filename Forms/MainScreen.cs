@@ -121,6 +121,12 @@ namespace Silkroski_C969
                 DataTable cxDataTable = new DataTable();
                 BindingSource cxBindingSource = new BindingSource();
 
+                //Rearchitecting
+               // client_scheduleDataSet.customerDataTable
+               //     newCxDataTable = new client_scheduleDataSet.customerDataTable();
+               // BindingSource newCxBindingSource = new BindingSource();
+               // newCxDataTable.
+
                 //Start
                 MyDA.Fill(cxDataTable);
                 cxBindingSource.DataSource = cxDataTable;
