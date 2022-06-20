@@ -64,6 +64,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="client_scheduleDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>client_scheduleDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DB\DBHelper.cs" />
     <Compile Include="Forms\CustomerForm.cs">
       <SubType>Form</SubType>
@@ -104,6 +109,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="client_scheduleDataSet.xsc">
+      <DependentUpon>client_scheduleDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="client_scheduleDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>client_scheduleDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="client_scheduleDataSet.xss">
+      <DependentUpon>client_scheduleDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
