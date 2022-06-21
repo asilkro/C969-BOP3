@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.IO;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using Silkroski_C969.Models;
@@ -65,7 +66,25 @@ namespace Silkroski_C969.Forms
             MySqlCommand queryLogin = new MySqlCommand("SELECT userName, password FROM user WHERE userName IS '%" +
                                                        userName + "AND password IS '%" + password);
             // Check against DB
-            //TODO: FINISH THIS
+            connection.Clone();
+            if (queryLogin.ExecuteNonQuery() == 1)
+            {
+                using (StreamWriter writer = File.AppendText(Log.logpath))
+                {
+                    writer.WriteLine("User: " + userName + " logged in at: " + System.DateTime.UtcNow + " UTC.\n");
+                    return true;
+                }
+            }
+            else
+            {
+                using (StreamWriter writer = File.AppendText(Log.logpath))
+                {
+                    writer.WriteLine("User: " + userName + " failed to login at: " + System.DateTime.UtcNow + " UTC.\n");
+                    return false;
+                }
+            }
+            
+
         }
 
         #endregion
