@@ -9,7 +9,7 @@ using Silkroski_C969.Forms;
 
 namespace Silkroski_C969.DB
 {
-    class DBHelper
+    partial class DBHelper
     {
         private static DbConnection _dbConnection = new DbConnection();
 

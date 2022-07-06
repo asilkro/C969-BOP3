@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using Silkroski_C969.DB;
 
 namespace Silkroski_C969.Forms
 {
@@ -30,7 +31,7 @@ namespace Silkroski_C969.Forms
         private void CxSaveButton_Click(object sender, EventArgs e)
         {
             //TODO: Implement validation, save
-            bool validated = ValidCustomerData();
+            bool validated = ValidCxData();
 
             if (validated == true)
             {
@@ -68,21 +69,28 @@ namespace Silkroski_C969.Forms
             }
         }
 
-        private bool ValidCustomerData() // Not elegant but addresses req F
+        private bool ValidCxData()
         {
-            if (CxNameTB.Text.Length == 0 || CxAddress1TB.Text.Length == 0 || CxCityTB.Text.Length == 0
-                || CxCountryTB.Text.Length == 0 || CxPostalTB.Text.Length == 0 || CxPostalTB.Text.Length == 0)
-            // Skipping Address2 box since this would be apartment or po box numbers which are often empty
+            bool isValid = true;
+            var textBoxesToCheck = Controls.OfType<TextBox>().ToArray();
+            foreach (var textBox in textBoxesToCheck)
+            {
+                if (textBox.Text.Length == 0)
+                {
+                    textBox.BackColor = Color.Crimson; // Red 
+                    isValid = false;
+                    break;
+                }
+            }
+
+            if (isValid != true)
             {
                 MessageBox.Show("Unable to save. Please check your data and retry.",
                     "Data validation error");
                 return false;
             }
-            else
-            {
-                return true;
-            }
+
+            return true;
         }
     }
-
 }
