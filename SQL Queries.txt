@@ -1,0 +1,77 @@
+﻿https://w3codegenerator.com/generators/sql/insert-query-mysql
+
+Insert User:
+
+INSERT INTO user (userName, password, active, createDate, createdBy, lastUpdate, lastUpdateBy)
+  VALUES  ("userName", "password", "active", "createDate", "createdBy", "lastUpdate", "lastUpdateBy");
+  
+--  
+Insert Appointment:
+
+INSERT INTO appointment (customerId, userId, title, description, location, contact, type, url, start, end, createDate, createdBy, lastUpdate, lastUpdateBy)
+  VALUES  ("customerId", "userId", "title", "description", "location", "contact", "type", "url", "start", "end", "createDate", "createdBy", "lastUpdate", "lastUpdateBy");
+
+
+--  
+Insert Customer:
+
+INSERT INTO customer (customerName, addressId, active, createDate, createdBy, lastUpdate, lastUpdateBy)
+  VALUES  ("customerName", "addressId", "active", "createDate", "createdBy", "lastUpdate", "lastUpdateBy");
+
+Insert Address:
+
+INSERT INTO address (address, address2, cityId, postalCode, phone, createDate, createdBy, lastUpdate, lastUpdateBy)
+  VALUES  ("address", "address2", "cityId", "postalCode", "phone", "createDate", "createdBy", "lastUpdate", "lastUpdateBy");
+  
+Insert City:
+
+INSERT INTO city (city, countryId, createDate, createdBy, lastUpdate, lastUpdateBy)
+  VALUES  ("city", "countryId", "createDate", "createdBy", "lastUpdate", "lastUpdateBy");
+  
+Insert Country:
+
+INSERT INTO city (country, createDate, createdBy, lastUpdate, lastUpdateBy)
+  VALUES  ("country", "createDate", "createdBy", "lastUpdate", "lastUpdateBy");
+  
+---------
+
+Delete User:
+
+DELETE FROM user WHERE 'userName' = '{}'
+
+Delete Appointment:
+
+DELETE FROM appointment WHERE 'appointmentId' = '{}'
+
+Delete Customer:
+
+DELETE FROM customer WHERE 'customerId' = '{}'
+
+Delete Address:
+
+DELETE FROM address WHERE 'addressId' = '{}'
+
+Delete City:
+
+DELETE FROM city WHERE 'city' = '{}'
+
+Delete Country:
+
+DELETE FROM country WHERE 'country' = '{}'
+
+---------
+
+Update User:
+UPDATE user SET field = 'updated value' WHERE field = 'old value';
+
+Update Appointment:
+UPDATE appointment SET field = 'updated value' WHERE field = 'old value';
+
+Update Customer:
+UPDATE customer SET field = 'updated value' WHERE field = 'old value';
+
+Update Address:
+UPDATE address SET field = 'updated value' WHERE field = 'old value';
+
+Update City:
+UPDATE city SET field = 'updated value' WHERE field = 'old value';

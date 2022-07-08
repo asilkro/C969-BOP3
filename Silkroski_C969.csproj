@@ -138,6 +138,7 @@
     <Content Include="Assignment.txt" />
     <Content Include="dataForNewDB_ver4.sql" />
     <Content Include="Scratch.txt" />
+    <Content Include="SQL Queries.txt" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
