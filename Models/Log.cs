@@ -7,7 +7,7 @@ namespace Silkroski_C969.Models
     public class Log
     {
         
-        public static string logpath = System.AppDomain.CurrentDomain.BaseDirectory + "AppLog.txt"; // PWD + a filename?
+        public static string logpath = System.Environment.CurrentDirectory + "AppLog.txt"; // PWD + a filename?
         public static void LogMessage(string userId, bool isConnected) // Create a file to write to.
         {
             string message = null;

@@ -34,6 +34,7 @@ namespace Silkroski_C969
             this.loginScreen = loginScreen;
             PopulateAllCustomers();
             PopulateAllAppointments();
+            PopulateAllEmployees();
         }
 
         private void Login()
@@ -78,6 +79,7 @@ namespace Silkroski_C969
             Log.LogMessage("test",true);
             PopulateAllCustomers();
             PopulateAllAppointments();
+            PopulateAllEmployees();
         }
 
         private void PopulateAllAppointments()
@@ -141,6 +143,31 @@ namespace Silkroski_C969
                 Logout();
             }
 
+        }
+
+        public void PopulateAllEmployees()
+        {
+            if (IsMySQLConnected() == true)
+            {
+                //Define variables
+                MySqlDataAdapter MyDA = new MySqlDataAdapter();
+                string sqlSelectAll = "SELECT userId, userName FROM user"; //Select users (consultants)
+                MyDA.SelectCommand = new MySqlCommand(sqlSelectAll, Connection.Connection);
+                DataTable userDataTable = new DataTable();
+                BindingSource userBindingSource = new BindingSource();
+
+                MyDA.Fill(userDataTable);
+                userBindingSource.DataSource = userDataTable;
+
+                user_DGV.DataSource = userBindingSource;
+            }
+            else
+            {
+                MessageBox.Show("Active SQL connection not found." +
+                                "Please try re-logging in.",
+                    "SQL Connection not found");
+                Logout();
+            }
         }
 
         public bool IsMySQLConnected()

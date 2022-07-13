@@ -43,6 +43,10 @@ namespace Silkroski_C969.Forms
             this.CxZIPLabel = new System.Windows.Forms.Label();
             this.CxSaveButton = new System.Windows.Forms.Button();
             this.CxCancelBtn = new System.Windows.Forms.Button();
+            this.CxPhoneTB = new System.Windows.Forms.TextBox();
+            this.CxPhoneLabel = new System.Windows.Forms.Label();
+            this.Cx_ActiveTB = new System.Windows.Forms.TextBox();
+            this.Cx_ActiveLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // CxNameTB
@@ -66,7 +70,7 @@ namespace Silkroski_C969.Forms
             this.CxAddress1TB.Location = new System.Drawing.Point(81, 230);
             this.CxAddress1TB.Name = "CxAddress1TB";
             this.CxAddress1TB.Size = new System.Drawing.Size(209, 20);
-            this.CxAddress1TB.TabIndex = 0;
+            this.CxAddress1TB.TabIndex = 1;
             // 
             // CxAddress1Label
             // 
@@ -79,15 +83,16 @@ namespace Silkroski_C969.Forms
             // 
             // CxAddress2TB
             // 
-            this.CxAddress2TB.Location = new System.Drawing.Point(81, 289);
+            this.CxAddress2TB.Location = new System.Drawing.Point(81, 337);
             this.CxAddress2TB.Name = "CxAddress2TB";
             this.CxAddress2TB.Size = new System.Drawing.Size(209, 20);
             this.CxAddress2TB.TabIndex = 0;
+            this.CxAddress2TB.Text = "Not Utilized";
             // 
             // CxAddress2Label
             // 
             this.CxAddress2Label.AutoSize = true;
-            this.CxAddress2Label.Location = new System.Drawing.Point(78, 273);
+            this.CxAddress2Label.Location = new System.Drawing.Point(78, 321);
             this.CxAddress2Label.Name = "CxAddress2Label";
             this.CxAddress2Label.Size = new System.Drawing.Size(101, 13);
             this.CxAddress2Label.TabIndex = 1;
@@ -98,21 +103,21 @@ namespace Silkroski_C969.Forms
             this.CxCityTB.Location = new System.Drawing.Point(329, 176);
             this.CxCityTB.Name = "CxCityTB";
             this.CxCityTB.Size = new System.Drawing.Size(209, 20);
-            this.CxCityTB.TabIndex = 0;
+            this.CxCityTB.TabIndex = 2;
             // 
             // CxCountryTB
             // 
             this.CxCountryTB.Location = new System.Drawing.Point(329, 289);
             this.CxCountryTB.Name = "CxCountryTB";
             this.CxCountryTB.Size = new System.Drawing.Size(209, 20);
-            this.CxCountryTB.TabIndex = 0;
+            this.CxCountryTB.TabIndex = 4;
             // 
             // CxPostalTB
             // 
             this.CxPostalTB.Location = new System.Drawing.Point(329, 230);
             this.CxPostalTB.Name = "CxPostalTB";
             this.CxPostalTB.Size = new System.Drawing.Size(209, 20);
-            this.CxPostalTB.TabIndex = 0;
+            this.CxPostalTB.TabIndex = 3;
             // 
             // CxCityLabel
             // 
@@ -161,11 +166,49 @@ namespace Silkroski_C969.Forms
             this.CxCancelBtn.UseVisualStyleBackColor = true;
             this.CxCancelBtn.Click += new System.EventHandler(this.CxCancelBtn_Click);
             // 
+            // CxPhoneTB
+            // 
+            this.CxPhoneTB.Location = new System.Drawing.Point(81, 289);
+            this.CxPhoneTB.Name = "CxPhoneTB";
+            this.CxPhoneTB.Size = new System.Drawing.Size(209, 20);
+            this.CxPhoneTB.TabIndex = 5;
+            // 
+            // CxPhoneLabel
+            // 
+            this.CxPhoneLabel.AutoSize = true;
+            this.CxPhoneLabel.Location = new System.Drawing.Point(78, 273);
+            this.CxPhoneLabel.Name = "CxPhoneLabel";
+            this.CxPhoneLabel.Size = new System.Drawing.Size(95, 13);
+            this.CxPhoneLabel.TabIndex = 4;
+            this.CxPhoneLabel.Text = "Customer Phone #";
+            // 
+            // Cx_ActiveTB
+            // 
+            this.Cx_ActiveTB.Location = new System.Drawing.Point(329, 337);
+            this.Cx_ActiveTB.Name = "Cx_ActiveTB";
+            this.Cx_ActiveTB.ReadOnly = true;
+            this.Cx_ActiveTB.Size = new System.Drawing.Size(209, 20);
+            this.Cx_ActiveTB.TabIndex = 5;
+            this.Cx_ActiveTB.Text = "1";
+            // 
+            // Cx_ActiveLabel
+            // 
+            this.Cx_ActiveLabel.AutoSize = true;
+            this.Cx_ActiveLabel.Location = new System.Drawing.Point(326, 321);
+            this.Cx_ActiveLabel.Name = "Cx_ActiveLabel";
+            this.Cx_ActiveLabel.Size = new System.Drawing.Size(82, 13);
+            this.Cx_ActiveLabel.TabIndex = 4;
+            this.Cx_ActiveLabel.Text = "Active? 1 = Yes";
+            // 
             // CustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.Cx_ActiveLabel);
+            this.Controls.Add(this.CxPhoneLabel);
+            this.Controls.Add(this.Cx_ActiveTB);
+            this.Controls.Add(this.CxPhoneTB);
             this.Controls.Add(this.CxCancelBtn);
             this.Controls.Add(this.CxSaveButton);
             this.Controls.Add(this.CxZIPLabel);
@@ -203,5 +246,9 @@ namespace Silkroski_C969.Forms
         private System.Windows.Forms.Label CxZIPLabel;
         private System.Windows.Forms.Button CxSaveButton;
         private System.Windows.Forms.Button CxCancelBtn;
+        private System.Windows.Forms.TextBox CxPhoneTB;
+        private System.Windows.Forms.Label CxPhoneLabel;
+        private System.Windows.Forms.TextBox Cx_ActiveTB;
+        private System.Windows.Forms.Label Cx_ActiveLabel;
     }
 }

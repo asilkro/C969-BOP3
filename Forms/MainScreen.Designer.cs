@@ -48,8 +48,10 @@ namespace Silkroski_C969
             this.CxSearchTB = new System.Windows.Forms.TextBox();
             this.customer_DGV = new System.Windows.Forms.DataGridView();
             this.DBG_populate_btn = new System.Windows.Forms.Button();
+            this.user_DGV = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.appointments_DGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customer_DGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.user_DGV)).BeginInit();
             this.SuspendLayout();
             // 
             // appointments_DGV
@@ -244,11 +246,22 @@ namespace Silkroski_C969
             this.DBG_populate_btn.UseVisualStyleBackColor = true;
             this.DBG_populate_btn.Click += new System.EventHandler(this.DBG_populate_btn_Click);
             // 
+            // user_DGV
+            // 
+            this.user_DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.user_DGV.Location = new System.Drawing.Point(376, 463);
+            this.user_DGV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.user_DGV.Name = "user_DGV";
+            this.user_DGV.RowTemplate.Height = 27;
+            this.user_DGV.Size = new System.Drawing.Size(362, 175);
+            this.user_DGV.TabIndex = 7;
+            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.user_DGV);
             this.Controls.Add(this.DBG_populate_btn);
             this.Controls.Add(this.CxSearchTB);
             this.Controls.Add(this.AppointmentLabel);
@@ -274,6 +287,7 @@ namespace Silkroski_C969
             this.Text = "Database Utility Tool - Logged In";
             ((System.ComponentModel.ISupportInitialize)(this.appointments_DGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customer_DGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.user_DGV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -299,6 +313,7 @@ namespace Silkroski_C969
         private System.Windows.Forms.TextBox CxSearchTB;
         private System.Windows.Forms.DataGridView customer_DGV;
         private System.Windows.Forms.Button DBG_populate_btn;
+        private System.Windows.Forms.DataGridView user_DGV;
     }
 }
 
